@@ -132,6 +132,7 @@ stargazer(clean_data, type = "text")
 library(lmtest)
 library(nlme)
 library(broom)
+library(flextable)
 log(clean_data$POP)
 
 ols<-lm(inf ~ CFA + GDPGROWTH + log(EXCRATE) + UNEMP + lvaw_garriga+ log(POP), data = clean_data)
@@ -144,6 +145,8 @@ bptest(ols) #testing for heteroskedasticity
 
 stargazer(ols, type ="text")
 
+
+as_flextable(ols)
 
 
 
